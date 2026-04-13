@@ -12,6 +12,10 @@ connectDB();
 // Middleware
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("API is running 🚀");
+});
+
 // Routes
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/courses', require('./routes/courseRoutes'));
