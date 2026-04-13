@@ -54,8 +54,8 @@ const createUser = async (req, res, next) => {
 
     // CREATE USER (dummy name & email)
     user = await User.create({
-      name: name || "Guest User",
-      email: email || `guest${Date.now()}@mail.com`,
+      name: name,
+      email: email,
       mobile,
       token
     });
