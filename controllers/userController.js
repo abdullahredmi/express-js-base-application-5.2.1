@@ -22,7 +22,7 @@ const getUsers = async (req, res, next) => {
 const createUser = async (req, res, next) => {
   try {
 
-    const { mobile } = req.body;
+    const { name, email, mobile } = req.body;
 
     if (!mobile) {
       return res.status(400).json({
@@ -54,8 +54,8 @@ const createUser = async (req, res, next) => {
 
     // CREATE USER (dummy name & email)
     user = await User.create({
-      name: "Guest User",
-      email: `guest${Date.now()}@mail.com`,
+      name: name || "Guest User",
+      email: email || `guest${Date.now()}@mail.com`,
       mobile,
       token
     });
